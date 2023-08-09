@@ -106,9 +106,15 @@ class DynamoDBTable {
   }
 
   extern "./dynamodb.js" inflight _putItem(tableName: str, item: Json): void;
-  inflight putItem(item: Json): Map<Attribute> {
+  inflight putItem(item: Json): void {
     this._putItem(this.tableName, item);
   }
+
+  extern "./dynamodb.js" inflight _getItem(tableName: str, item: Json): Json;
+  inflight getItem(item: Json): Json {
+    return this._getItem(this.tableName, item);
+  }
+
 
   _keyAttributeTypeToString(type: AttributeType): str {
     if type == AttributeType.String {

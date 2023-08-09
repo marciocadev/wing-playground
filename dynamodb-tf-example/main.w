@@ -4,6 +4,7 @@ bring "./dynamodb-tf.w" as ddb;
 class Person {
   table: ddb.DynamoDBTable;
   addPerson: cloud.Function;
+  getPerson: cloud.Function;
 
   init() {
     this.table = new ddb.DynamoDBTable(
@@ -18,9 +19,12 @@ class Person {
     ) as "Person";
 
     this.addPerson = new cloud.Function(inflight (event: str) => {
-      log(event);
       this.table.putItem(event);
     }) as "addPerson";
+
+    this.getPerson = new cloud.Function(inflight (event: str): Json => {
+      return this.table.getItem(event);
+    }) as "getPerson";
   }
 }
 
