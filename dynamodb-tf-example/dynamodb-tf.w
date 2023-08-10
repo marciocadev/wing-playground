@@ -67,8 +67,8 @@ class DynamoDBTable {
         host.addPolicyStatements([
           aws.PolicyStatement {
             actions: ["dynamodb:PutItem"],
-            resources: [this.table.arn],
             effect: aws.Effect.ALLOW,
+            resources: [this.table.arn],
           }
         ]);
       }
@@ -77,8 +77,8 @@ class DynamoDBTable {
         host.addPolicyStatements([
           aws.PolicyStatement {
             actions: ["dynamodb:UpdateItem"],
-            resources: [this.table.arn],
             effect: aws.Effect.ALLOW,
+            resources: [this.table.arn],
           }
         ]);
       }
@@ -87,8 +87,8 @@ class DynamoDBTable {
         host.addPolicyStatements([
           aws.PolicyStatement {
             actions: ["dynamodb:DeleteItem"],
-            resources: [this.table.arn],
             effect: aws.Effect.ALLOW,
+            resources: [this.table.arn],
           }
         ]);
       }
@@ -97,8 +97,8 @@ class DynamoDBTable {
         host.addPolicyStatements([
           aws.PolicyStatement {
             actions: ["dynamodb:GetItem"],
-            resources: [this.table.arn],
             effect: aws.Effect.ALLOW,
+            resources: [this.table.arn],
           }
         ]);
       }
@@ -115,6 +115,10 @@ class DynamoDBTable {
     return this._getItem(this.tableName, item);
   }
 
+  extern "./dynamodb.js" inflight _deleteItem(tableName: str, item: Json): Json;
+  inflight deleteItem(item: Json): Json {
+    return this._deleteItem(this.tableName, item);
+  }
 
   _keyAttributeTypeToString(type: AttributeType): str {
     if type == AttributeType.String {

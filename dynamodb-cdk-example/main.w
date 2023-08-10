@@ -1,11 +1,11 @@
 bring cloud;
-bring "./dynamodb-tf.w" as ddb;
+bring "./dynamodb-cdk.w" as ddb;
 
 class Person {
   table: ddb.DynamoDBTable;
   addPerson: cloud.Function;
-  getPerson: cloud.Function;
-  deletePerson: cloud.Function;
+  // getPerson: cloud.Function;
+  // deletePerson: cloud.Function;
 
   init() {
     this.table = new ddb.DynamoDBTable(
@@ -23,13 +23,13 @@ class Person {
       this.table.putItem(event);
     }) as "addPerson";
 
-    this.getPerson = new cloud.Function(inflight (event: str): Json => {
-      return this.table.getItem(event);
-    }) as "getPerson";
+    // this.getPerson = new cloud.Function(inflight (event: str): Json => {
+    //   return this.table.getItem(event);
+    // }) as "getPerson";
 
-    this.deletePerson = new cloud.Function(inflight (event: str): Json => {
-      return this.table.deleteItem(event);
-    }) as "deletePerson";
+    // this.deletePerson = new cloud.Function(inflight (event: str): Json => {
+    //   return this.table.deleteItem(event);
+    // }) as "deletePerson";
   }
 }
 

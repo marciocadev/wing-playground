@@ -1,8 +1,8 @@
 {
-  "name": "temp",
+  "name": "dynamodb-cdk-example",
   "version": "1.0.0",
   "description": "",
-  "main": "dynamo.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.388.0",
+    "@aws-sdk/client-dynamodb": "^3.387.0",
+    "@aws-sdk/util-dynamodb": "^3.387.0",
     "aws-cdk-lib": "^2.90.0"
   }
 }
