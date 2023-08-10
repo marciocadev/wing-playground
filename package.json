@@ -1,8 +1,8 @@
 {
-  "name": "dynamodb-tf-example",
+  "name": "wing-playground",
   "version": "1.0.0",
-  "description": "```json {   \"name\": \"Marcio\",   \"surname\": \"Almeida\",   \"age\": 50 } ```",
-  "main": "dynamodb.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,6 +12,8 @@
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.388.0",
     "@aws-sdk/util-dynamodb": "^3.388.0",
-    "@cdktf/provider-aws": "^16.0.6"
+    "@cdktf/provider-aws": "^16.0.6",
+    "aws-cdk-lib": "^2.90.0",
+    "winglang": "^0.24.91"
   }
 }
