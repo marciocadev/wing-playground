@@ -61,7 +61,7 @@ class DynamoDBTable {
     this.tableName = this.table.name;
   }
 
-  _bind(host: std.IInflightHost, ops: Array<str>) {
+  bind(host: std.IInflightHost, ops: Array<str>) {
     if let host = aws.Function.from(host) {
       if ops.contains("putItem") {
         host.addPolicyStatements([
